@@ -1,0 +1,52 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap");
+
+* {
+  
+  margin: 20;
+  padding: 15;
+  box-sizing: border-box;
+  
+ 
+}
+
+body,
+
+.h1{
+    
+    padding-left: 40px;
+    
+    
+}
+.dropdown{
+    font-size: large;
+    padding: 5px;   
+}
+.drop{
+    font-size: large;
+    padding: 5px;
+    background-color: white;   
+}
+.btn{
+    background-color: red;
+    font-size: large;
+    transition-duration: 0.4s;
+    padding: 5px;
+    
+}
+.btn:hover{
+    background-color: blueviolet;
+    color:red
+}
+.result{
+    font-size: large;
+    justify-content: center;
+    padding: 5px;
+    
+}
+.res{
+    font-size: x-large;
+    font-weight: bolder;
+    justify-content: center;
+    padding: 5px;
+}
+

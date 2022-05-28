@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+
+<head>
+	<title>
+		Mal-aware
+	</title>
+    
+</head>
+<link rel="stylesheet" href="style.css" />
+<body>
+    
+	<h1 style="color: red;">
+		Mal-Aware
+	</h1>
+	<b>
+		Select IOCs to get the desired Tools for Analysis & Detection
+	</b>
+	
+<p class="dropdown" id ="dd"> Network IOC : 
+    <select class="drop" name="Network" id="select1">
+    <option disabled selected>Choose Network IOC</option>
+    <option value="Perform HTTP requests">Perform HTTP requests</option>
+    <option value="Connect to tor2web">Connect to tor2web</option>
+    <option value="Too many DNS requests">Too many DNS requests</option>
+    <option value="Too many non-existing domain name responses">Too many non-existing domain name responses</option>
+    <option value="Request to high entropy domain names">Request to high entropy domain names</option>
+    <option value="I2P requests">I2P requests</option>
+
+
+  </select>
+  <p> 
+    <p class="dropdown" id ="dd"> System IOC : 
+        <select class="drop" name="System" id="select2">
+            <option disabled selected>Choose System IOC</option>
+            <option value="Disable windows error recovery on startup">Disable windows error recovery on startup</option>
+            <option value="Disable startup repair">Disable startup repair</option>
+            <option value="Disable UAC">Disable UAC</option>
+            <option value="Disable Task manager">Disable Task manager</option>
+            <option value="Stops windows security center service and prevents it from starting up on boot">Stops windows security center service and prevents it from starting up on boot</option>
+            <option value="Stops windows defender service and prevents it from starting up on boot">Stops windows defender service and prevents it from starting up on boot</option>
+            <option value="Stop windows update service and prevents it from starting up on boot">Stop windows update service and prevents it from starting up on boot</option>
+            <option value="Stops error reporting service and prevents it from starting up on boot">Stops error reporting service and prevents it from starting up on boot</option>
+            <option value="Firewall disabled">Firewall disabled</option>
+            <option value="AV disabled">AV disabled</option>
+            <option value="Stops background intelligent transfer service and prevents it from starting up from boot">Stops background intelligent transfer service and prevents it from starting up from boot</option>
+            <option value="Renames file to executable">Renames file to executable</option>
+
+          </select>
+    
+      </select>
+      <p> 
+        <p class="dropdown" id ="dd"> Static IOC : 
+            <select  class="drop" name="Static" id="select3">
+                <option disabled selected>Choose Static IOC</option>
+                <option value="Compiled recently">Compiled recently</option>
+                <option value="Recently downloaded">Recently downloaded</option>
+                <option value="Packed/obfuscated">Packed/obfuscated</option>
+                <option value="Reported infected by Yara">Reported infected by Yara</option>
+                <option value="Import Crypto libraries">Import Crypto libraries</option>
+                <option value="Process signature">Process signature</option>
+            
+              </select>
+        
+          </select>
+          <p> 
+            <p class="dropdown" id ="dd"> Behavorial IOC : 
+                <select class="drop" name="Behavorial" id="select4">
+                    <option disabled selected>Choose Behavorial IOC</option>
+                    <option value="Tries to unhook windows functions">Tries to unhook windows function</option>
+                    <option value="Untrusted processes spawning/injecting into target processes">Untrusted processes spawning/injecting into target processes</option>
+                    <option value="Fingerprints the system">Fingerprints the system</option>
+                    <option value="Dropped files">Dropped files</option>
+                    <option value="Untrusted processes spawning/injecting into target processes">Untrusted processes spawning/injecting into target processes</option>
+                    <option value="Temp directory">Temp directory</option>
+                    <option value="AppDataRoaming Directory">AppDataRoaming Directory</option>
+                    <option value="AppDataLocal Directory">AppDataLocal Directory</option>
+                    <option value="ProgramData Directory">ProgramData Directory</option>
+                    <option value="Links to crypto libraries during run time">Links to crypto libraries during run time</option>
+                    <option value="WinCrypt API used">WinCrypt API used</option>
+                    <option value="Create RWX memory">Create RWX memory</option>
+                    <option value="Create hidden files">Create hidden files</option>
+                    <option value="Delete original files from disk">Delete original files from disk</option>
+                    <option value="Suspicious registry entry">Suspicious registry entry</option>
+                    <option value="Mimics file times of a windows system file">Mimics file times of a windows system file</option>
+
+                
+                  </select>
+            
+              </select>
+              <p> 
+                
+    <p class="res">Result</p>  
+              
+    <p class="result">Tools for Network IOC : 
+		<span class="output1"></span>
+	</p>
+    <p class="result"> Tools for System IOC : 
+		<span class="output2"></span>
+	</p>
+    <p class="result"> Tools for Static IOC : 
+		<span class="output3"></span>
+	</p>
+    <p class="result"> Tools for Behavorial IOC : 
+		<span class="output4"></span>
+	</p>
+
+
+	<button class="btn" onclick="getOption()"> Submit </button>
+	
+	<script type="text/javascript">
+	function getOption() 
+    {
+		selectElement = document.querySelector('#select1');
+		op1 = selectElement.value;
+        if (op1 =="Perform HTTP requests") 
+        {
+            output = "HitmanPro , Cryptomonitor";
+        }else if (op1 =="Connect to tor2web") {
+            output = "Cryptomonitor";
+        }
+        else if (op1 =="Too many DNS requests") {
+                output = "Cryptomonitor";
+        }
+        else if (op1 =="Too many non-existing domain name responses") {
+                    output = "Cryptomonitor";
+        }
+        else if (op1 =="Request to high entropy domain names") {
+                        output = "HitmanPro , Cryptomonitor";
+        }
+        else if (op1 =="I2P requests") {
+            output = "Cryptomonitor";
+        }
+          
+         
+		document.querySelector('.output1').textContent = output;
+
+
+        selectElement = document.querySelector('#select2');
+		op2 = selectElement.value;
+        if (op2 =="Disable windows error recovery on startup") 
+        {
+            output = "Bit Defender , Cryptomonitor, Cryptoprevent";
+        }else if (op2 =="Disable startup repair") {
+            output = "Bit Defender , Cryptomonitor, Cryptoprevent";
+        }
+        else if (op2 =="Disable UAC") {
+                output = "Cryptomonitor";
+        }
+        else if (op2 =="Disable Task manager") {
+                    output = "Cryptomonitor";
+        }
+        else if (op2 =="Stops windows security center service and prevents it from starting up on boot") {
+                        output = "Bit Defender , Cryptomonitor, Cryptoprevent";
+        }
+        else if (op2 =="Stops windows defender service and prevents it from starting up on boot") {
+            output = "Cryptomonitor, Bit Defender, Cryptoprevent";
+        } 
+        else if (op2 =="Stop windows update service and prevents it from starting up on boot") {
+            output = "Cryptomonitor, Bit Defender, Cryptoprevent";
+        } else if (op2 =="Stops error reporting service and prevents it from starting up on boot") {
+            output = "Cryptomonitor, Bit Defender, Cryptoprevent";
+        } else if (op2 =="Firewall disabled") {
+            output = "Cryptomonitor";
+        } else if (op2 =="AV disabled") {
+            output = "Cryptomonitor";
+        } else if (op2 =="Stops background intelligent transfer service and prevents it from starting up from boot") {
+            output = "Cryptomonitor, Bit Defender, Cryptoprevent";
+        } else if (op2 =="Renames file to executable") {
+            output = "Cryptomonitor, HitmanPro, Cryptoprevent";
+        }  
+         
+		document.querySelector('.output2').textContent = output;
+
+
+        selectElement = document.querySelector('#select3');
+		op3 = selectElement.value;
+        if (op3 =="Compiled recently") 
+        {
+            output = "HitmanPRo, Bit Defender , Cryptomonitor, Cryptoprevent, CryptoDrop";
+        }else if (op3 =="Recently downloaded") {
+            output = "HitmanPRo, Cryptomonitor, Cryptoprevent, CryptoDrop";
+        }
+        else if (op3 =="Packed/obfuscated") {
+                output = "HitmanPRo, Bit Defender , Cryptomonitor, Cryptoprevent, CryptoDrop";
+        }
+        else if (op3 =="Reported infected by Yara") {
+                    output = "No specific tool found !!";
+        }
+        else if (op3 =="Import Crypto libraries") {
+                        output = "HitmanPRo, Bit Defender , Cryptomonitor, Cryptoprevent, CryptoDrop";
+        }
+        else if (op3 =="Process signature") {
+            output = "HitmanPRo";
+}  
+         
+		document.querySelector('.output3').textContent = output;
+		
+        selectElement = document.querySelector('#select4');
+		op3 = selectElement.value;
+        if (op3 =="Tries to unhook windows function") 
+        {
+            output = "Cryptomonitor";
+        }else if (op3 =="Untrusted processes spawning/injecting into target processes") {
+            output = "HitmanPRo, Cryptomonitor, Cryptoprevent, CryptoDrop";
+        }
+        else if (op3 =="Fingerprints the system") {
+                output = "HitmanPRo, Cryptomonitor";
+        }
+        else if (op3 =="Dropped files") {
+                    output = "HitmanPRo, Bit Defender , Cryptomonitor, Cryptoprevent, CryptoDrop";
+        }
+        else if (op3 =="Periodic Activity") {
+                        output = "Cryptoprevent";
+        }
+        else if (op3 =="Periodic Activity") {
+            output = "Cryptoprevent";
+}
+else if (op3 =="Untrusted processes spawning/injecting into target processes") {
+    output = "Cryptoprevent, HitmanPRo, Cryptomonitor, CryptoDrop";
+}
+else if (op3 =="Temp directory") {
+    output = "HitmanPRo, Bit Defender , Cryptomonitor, Cryptoprevent, CryptoDrop";
+}
+else if (op3 =="AppDataRoaming Directory") {
+    output = "HitmanPRo, Bit Defender , Cryptomonitor, Cryptoprevent, CryptoDrop";
+}
+else if (op3 =="AppDataLocal Directory") {
+    output = "HitmanPRo, Bit Defender , Cryptomonitor, Cryptoprevent, CryptoDrop";
+}
+else if (op3 =="ProgramData Directory") {
+    output = "HitmanPRo, Cryptomonitor, Cryptoprevent, CryptoDrop";
+}
+else if (op3 =="Links to crypto libraries during run time") {
+    output = "HitmanPRo, Cryptomonitor, Cryptoprevent, CryptoDrop";
+}
+else if (op3 =="WinCrypt API used") {
+    output = "Cryptoprevent";
+}
+else if (op3 =="Create RWX memory") {
+    output = "HitmanPRo, Bit Defender , Cryptomonitor, CryptoDrop";
+}
+else if (op3 =="Create hidden files") {
+    output = "HitmanPRo, Bit Defender , Cryptomonitor, Cryptoprevent, CryptoDrop";
+}
+else if (op3 =="Delete original files from disk") {
+    output = "HitmanPRo, Bit Defender , Cryptomonitor, Cryptoprevent, CryptoDrop";
+}
+else if (op3 =="Suspicious registry entry") {
+    output = "HitmanPRo, Cryptomonitor";
+}
+else if (op3 =="Mimics file times of a windows system file") {
+    output = "HitmanPRo, Cryptomonitor, Cryptoprevent, CryptoDrop";
+}
+
+		document.querySelector('.output4').textContent = output;
+        
+	}
+	</script>
+</body>
+
+</html>
